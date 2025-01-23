@@ -1,0 +1,12 @@
+This file will serve to document ideas and notes for future features.
+
+------ FEATURES V1 ------
+- Manage List of equipment that were installed or pick-up at a job-site
+- Filter tasks by range of dates ex: from: 01-01-25 to: 01-08-25
+- Add monetary value to each task base on the task type
+
+
+------ FEATURES FOR NEXT VERSION ------
+- Send email reports
+- Check milage distance between jobs, start location > 1st job, then previous job > new job, last job to end location
+- Document any expenses.
