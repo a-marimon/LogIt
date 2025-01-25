@@ -5,24 +5,24 @@ from address.models import Address
 
 
 # CHOICES TABLES
-class JobTypeChoices(models.IntegerChoices):
-    NC_SINGLE = 1
-    NC_DOUBLE = 2
-    NC_TRIPLE = 3
-    RC_SINGLE = 4
-    RC_DOUBLE = 5
-    RC_TRIPLE = 6
-    RES_SINGLE = 7
-    RES_DOUBLE = 8
-    RES_TRIPLE = 9
-    TROUBLE_CALL = 10
-    DOWN_DROP = 11
-    SB_NC_SINGLE = 12
-    SB_NC_DOUBLE = 13
-    SB_NC_TRIPLE = 14
-    SB_RC_SINGLE = 15
-    SB_RC_DOUBLE = 16
-    SB_RC_TRIPLE = 17
+# class JobTypeChoices(models.IntegerChoices):
+#     NC_SINGLE = 1
+#     NC_DOUBLE = 2
+#     NC_TRIPLE = 3
+#     RC_SINGLE = 4
+#     RC_DOUBLE = 5
+#     RC_TRIPLE = 6
+#     RES_SINGLE = 7
+#     RES_DOUBLE = 8
+#     RES_TRIPLE = 9
+#     TROUBLE_CALL = 10
+#     DOWN_DROP = 11
+#     SB_NC_SINGLE = 12
+#     SB_NC_DOUBLE = 13
+#     SB_NC_TRIPLE = 14
+#     SB_RC_SINGLE = 15
+#     SB_RC_DOUBLE = 16
+#     SB_RC_TRIPLE = 17
 
 
 class JobType(models.Model):
@@ -34,8 +34,7 @@ class JobType(models.Model):
 
 
 class Job(models.Model):
-    # Keeping TimeFrameChoices old version do to the new version format
-    # does not support using numeric labels
+    # Keeping TimeFrameChoices old version do to the new version format does not support using numeric labels
     TimeFrameChoices = [
         ('8-9AM', '8:00 AM - 9:00 AM'),
         ('9-10AM', '9:00 AM - 10:00 AM'),
