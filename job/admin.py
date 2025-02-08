@@ -4,7 +4,7 @@ from sqlite3 import Date
 from django.contrib import admin
 
 from equipment.admin import EquipmentInline
-from job.models import Job
+from job.models import Job, JobType
 from utils.CustomModelAdmin import CustomModelAdmin
 
 
@@ -43,6 +43,13 @@ class JobInline(admin.TabularInline):
             return qs
         return qs.filter(user=request.user)
 
+    def has_add_permission(self, request, obj):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
 
 @admin.register(Job)
 class JobAdmin(CustomModelAdmin):
@@ -65,3 +72,11 @@ class JobAdmin(CustomModelAdmin):
             obj.user = request.user
 
         super().save_model(request, obj, form, change)
+
+@admin.register(JobType)
+class JobTypeAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'compensation',
+    )
+

@@ -6,7 +6,7 @@ from utils.CustomModelAdmin import CustomModelAdmin
 
 # Register your models here.
 @admin.register(Equipment)
-class EquipmentAdmin(CustomModelAdmin):
+class EquipmentAdmin(admin.ModelAdmin):
     search_fields = ('identifier', )
     list_display = ('identifier',  'type', 'is_return', 'job',)
     list_filter = ('is_return',)

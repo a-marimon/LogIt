@@ -4,27 +4,6 @@ from django.db import models
 from address.models import Address
 
 
-# CHOICES TABLES
-# class JobTypeChoices(models.IntegerChoices):
-#     NC_SINGLE = 1
-#     NC_DOUBLE = 2
-#     NC_TRIPLE = 3
-#     RC_SINGLE = 4
-#     RC_DOUBLE = 5
-#     RC_TRIPLE = 6
-#     RES_SINGLE = 7
-#     RES_DOUBLE = 8
-#     RES_TRIPLE = 9
-#     TROUBLE_CALL = 10
-#     DOWN_DROP = 11
-#     SB_NC_SINGLE = 12
-#     SB_NC_DOUBLE = 13
-#     SB_NC_TRIPLE = 14
-#     SB_RC_SINGLE = 15
-#     SB_RC_DOUBLE = 16
-#     SB_RC_TRIPLE = 17
-
-
 class JobType(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False)
     compensation = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
@@ -57,7 +36,7 @@ class Job(models.Model):
         max_length=100,
         choices=TimeFrameChoices,
         default='0',
-        null=True,
+        null=False,
         blank=True
     )
     notes = models.TextField(null=True, blank=True)
