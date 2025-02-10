@@ -16,7 +16,7 @@ class List(models.Model):
         return self.title
 
 class ListItem(models.Model):
-    list = models.ForeignKey(List, on_delete=models.CASCADE)
+    list = models.ForeignKey(List, on_delete=models.CASCADE, related_name='items')
     item = models.CharField(max_length=100, null=False, blank=False)
     quantity = models.IntegerField(null=False, blank=False, default=1)
     is_checked = models.BooleanField(default=False)

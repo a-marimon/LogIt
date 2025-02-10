@@ -1,27 +1,16 @@
-import datetime
-from pyexpat.errors import messages
-
-from rest_framework import status
-from rest_framework.generics import get_object_or_404
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from job.models import Job
 from job.serializers import JobSerializer
 
 
+class JobViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = JobSerializer
+    queryset = Job.objects.all()
 
-
-
-@api_view()
-def all_jobs(request):
-    jobs = Job.objects.all()
-    serializer = JobSerializer(jobs, many=True)
-    return Response(serializer.data)
-
-@api_view()
-def job_detail(request, id):
-    task = get_object_or_404(Job, pk=id)
-    serializer = JobSerializer(task)
-    print(task.id)
-    return Response(serializer.data)
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Job.objects.all()
+        return self.queryset.filter(user=self.request.user)

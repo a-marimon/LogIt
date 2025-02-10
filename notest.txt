@@ -11,3 +11,10 @@ This file will serve to document ideas and notes for future features.
 - Check milage distance between jobs, start location > 1st job, then previous job > new job, last job to end location
 - Document any expenses.
 - Scan screenshot from create job reports.
+
+
+
+Authentications Options
+
+-rest_framework.token
+-
